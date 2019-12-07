@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+    
+  
+
+    <div>
+        
+        <lottie-player autoplay loop src="https://assets9.lottiefiles.com/temp/lf20_9EuvAt.json">
+        </lottie-player>
+      </div>
+    
+
+  <ion-item>
+    <ion-label>Email Address</ion-label>
+    <ion-input type="text" [(ngModel)]="user.email"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Password</ion-label>
+    <ion-input type="password" [(ngModel)]="user.password"></ion-input>
+  </ion-item>
+
+
+  
+<ion-button (click)="login()">
+  Login
+</ion-button>
+</ion-content>
