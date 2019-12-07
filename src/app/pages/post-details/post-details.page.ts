@@ -2,6 +2,7 @@ import { Post, PostService } from './../../services/post.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NavController, LoadingController } from '@ionic/angular';
+import { AngularFireAuth } from 'angularfire2/auth';
  
 @Component({
   selector: 'app-post-details',
@@ -11,9 +12,9 @@ import { NavController, LoadingController } from '@ionic/angular';
 export class PostDetailsPage implements OnInit {
  
   post: Post = {
-  	idUser : '100',
-  	description: 'assault with 21 guns',
-  	location: 'lomas 4ta section #123456 cp 098765',
+  	idUser : this.angularFireAuth.auth.currentUser.uid,
+  	description: '',
+  	location: '',
     clasification: 0,
     status: 0,
   	createdAt: new Date().getTime(),    
@@ -23,7 +24,7 @@ export class PostDetailsPage implements OnInit {
  
   postId = null;
  
-  constructor(private route: ActivatedRoute, private nav: NavController, private postService: PostService, private loadingController: LoadingController) { }
+  constructor(private route: ActivatedRoute, private nav: NavController, private postService: PostService, private loadingController: LoadingController, private angularFireAuth: AngularFireAuth) { }
 
   ngOnInit() {
     this.postId = this.route.snapshot.params['id'];
