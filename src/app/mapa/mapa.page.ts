@@ -2,6 +2,7 @@ import { Component, OnInit, AfterContentInit, ViewChild, ElementRef, AfterViewIn
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { Post, PostService } from '../services/post.service';
 declare var google;
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-mapa',
@@ -13,8 +14,7 @@ export class MapaPage implements OnInit, AfterViewInit {
   heatmap;
   latitude: any;
   longitude: any;
-  posts: Post[];
-   a;
+  posts: Observable<Post[]>;
   
   @ViewChild('mapElement',{static:false}) mapElement: ElementRef;
 
@@ -22,11 +22,7 @@ export class MapaPage implements OnInit, AfterViewInit {
 
 
   ngOnInit() {
-    this.postService.getPosts().subscribe( res => {
-      this.posts = res;
-      
-      
-    });
+    this.posts=this.postService.getPosts();
    
     
 
@@ -67,7 +63,22 @@ export class MapaPage implements OnInit, AfterViewInit {
         }
       };
   
-console.log(this.posts);
+      this.posts.subscribe({
+        next(objetos) {
+          objetos.forEach(post => {
+            var myLatlng = new google.maps.LatLng(parseFloat(post.Lat),parseFloat(post.Lon));
+
+            var marker = new google.maps.Marker({
+              position:myLatlng,
+              icon: image,
+              map: map
+          });
+         // map.setContent(marker);
+          });
+        },
+        error(err) { console.log('errors'); }
+      })
+      
 /*
       for(var a=0;this.posts.length;a++){        
         var marker = new google.maps.Marker({
