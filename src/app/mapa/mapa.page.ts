@@ -1,5 +1,6 @@
 import { Component, OnInit, AfterContentInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { Post, PostService } from '../services/post.service';
 declare var google;
 
 @Component({
@@ -12,13 +13,25 @@ export class MapaPage implements OnInit, AfterViewInit {
   heatmap;
   latitude: any;
   longitude: any;
+  posts: Post[];
+   a;
   
   @ViewChild('mapElement',{static:false}) mapElement: ElementRef;
 
-  constructor(private geolocation: Geolocation) { }
+  constructor(private geolocation: Geolocation,private postService: PostService) { }
+
 
   ngOnInit() {
+    this.postService.getPosts().subscribe( res => {
+      this.posts = res;
+      
+      
+    });
+   
+    
+
   }
+
 
   ngAfterViewInit(): void {
     var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
@@ -41,18 +54,35 @@ export class MapaPage implements OnInit, AfterViewInit {
       infoWindow.open(map);
       map.setCenter(pos);
 
-      var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(22.151206, -101.028682),
-        map: map,
-        icon: image
+
+      var icons = {
+        0: {
+            icon: image
+        },
+        1: {
+            icon: image
+        },
+        2: {
+            icon: image
+        }
+      };
+  
+console.log(this.posts);
+/*
+      for(var a=0;this.posts.length;a++){        
+        var marker = new google.maps.Marker({
+          position: this.posts[a].location,
+          //icon: icons[element.clasification].icon,
+          map: map
       });
       map.setContent(marker);
+      }*/
 
     }).catch((error) => {
       console.log('Error getting location', error);
     });
 
-
+     
     
   }
 
@@ -65,4 +95,9 @@ export class MapaPage implements OnInit, AfterViewInit {
       new google.maps.LatLng(22.168336, -101.044823),];
 
   }
+
+
+
+
+  
 }
