@@ -3,25 +3,25 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/home"></ion-back-button>
     </ion-buttons>
-    <ion-title>Details</ion-title>
+    <ion-title>Form Complaint</ion-title>
   </ion-toolbar>
 </ion-header>
  
 <ion-content class="ion-padding">
-  
+
 	<ion-list lines="full">
-		
-		
 		 <ion-item>
-		    <ion-input required type="text" placeholder="description of situation" [(ngModel)]="post.description"></ion-input>
+		    <ion-input required type="text" placeholder="Description of situation" [(ngModel)]="post.description"></ion-input>
 		 </ion-item>
 
 		<ion-item>
-		    <ion-input required type="text" placeholder="Location Real Time" [(ngModel)]="post.location"></ion-input>
+			<ion-textarea required type="text" placeholder="Location Real Time" ></ion-textarea>
+			<button (click)="getcoord()"><ion-icon name="md-globe"></ion-icon></button>
 		</ion-item>
 
-		
+		<ion-item>
+		    <ion-input required type="number" placeholder="Clasification" [(ngModel)]="post.clasification"></ion-input>
+		</ion-item>
 	</ion-list>
-
   	<ion-button expand="full" (click)="savePost()">Save</ion-button>
 </ion-content>

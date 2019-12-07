@@ -7,6 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { PostDetailsPageRoutingModule } from './post-details-routing.module';
 
 import { PostDetailsPage } from './post-details.page';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+
 
 @NgModule({
   imports: [
@@ -15,6 +17,7 @@ import { PostDetailsPage } from './post-details.page';
     IonicModule,
     PostDetailsPageRoutingModule
   ],
-  declarations: [PostDetailsPage]
+  declarations: [PostDetailsPage],  
+  providers: [Geolocation]
 })
 export class PostDetailsPageModule {}
