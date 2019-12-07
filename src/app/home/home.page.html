@@ -32,7 +32,7 @@
           Denuncia: {{ item.description }} <br>
           <p>{{ item.createdAt | date:'short' }} / {{ item.location }}</p>
         </ion-label>
-        <ion-note slot="end" color="primary">{{ item.id }}</ion-note>
+        <ion-note slot="end" color="primary">Folio: {{ item.id }}</ion-note>
       </ion-item>
  
       <ion-item-options side="end">
@@ -53,10 +53,7 @@
  
 </ion-content>
 
-
-
-
-
+<ion-button expand="full" color="primary" routerLink="/mapa">Mapa</ion-button>
 <ion-button expand="full" color="danger">911</ion-button>
 
 
