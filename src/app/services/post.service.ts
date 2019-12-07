@@ -11,6 +11,8 @@ export interface Post {
   clasification: number;
   status: number;
   createdAt: number;
+  Lat: string;
+  Lon: string;
 }
  
 @Injectable({
@@ -37,8 +39,8 @@ export class PostService {
     );
   }
  
-  getPosts() {
-    return this.posts;
+   getPosts() {
+    return  this.posts;
   }
  
   getPost(id) {

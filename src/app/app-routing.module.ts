@@ -12,10 +12,14 @@ const routes: Routes = [
   {
     path: 'post-details',
     loadChildren: () => import('./pages/post-details/post-details.module').then( m => m.PostDetailsPageModule)
-  },  {
+  },
+  {
     path: 'login',
     loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
   },
+  {
+    path: 'mapa',
+    loadChildren: () => import('./mapa/mapa.module').then( m => m.MapaPageModule)},
 
 ];
 
