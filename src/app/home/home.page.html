@@ -1,14 +1,65 @@
+
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
-      Ionic Blank
+      Home
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  </div>
+
+
+  <div class="ion-padding"> <h1>Complaints</h1> </div>
+
+<ion-content> 
+
+    
+  <ion-list>
+     
+
+    <ng-container *ngIf="!posts || posts.length == 0">
+      <div *ngFor="let n of [0,1,2]" class="ion-padding">
+        <ion-skeleton-text></ion-skeleton-text>
+        <p>
+          <ion-skeleton-text class="fake-skeleton"></ion-skeleton-text>
+        </p>
+      </div>
+    </ng-container>
+ 
+    <ion-item-sliding *ngFor="let item of posts">
+      <ion-item lines="inset" button [routerLink]="['/post-details', item.id]">
+        <ion-label>
+          User: {{ item.idUser }} <br>
+          Clasification: {{ item.clasification }} <br>
+          Status: {{ item.status }} <br>
+          Notice: {{ item.description }} <br>
+          <p>{{ item.createdAt | date:'short' }} / {{ item.location }}</p>
+        </ion-label>
+        <ion-note slot="end" color="primary">{{ item.id }}</ion-note>
+      </ion-item>
+ 
+      <ion-item-options side="end">
+        <ion-item-option (click)="remove(item)" color="secondary">
+          Check
+          <ion-icon name="checkmark" slot="end"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+ 
+  </ion-list>
+ 
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button routerLink="/post-details" routerDirection="forward">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+ 
 </ion-content>
+
+
+
+
+
+<ion-button expand="full" color="danger">911</ion-button>
+
+
