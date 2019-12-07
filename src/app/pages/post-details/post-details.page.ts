@@ -72,7 +72,8 @@ export class PostDetailsPage implements OnInit {
       this.latitude = resp.coords.latitude;
       this.longitude = resp.coords.longitude;
       this.post.Lon=this.longitude;
-      this.post.Lat=this.latitude;          
+      this.post.Lat=this.latitude; 
+      this.post.location = this.latitude+","+this.longitude;       
     });
   } 
 }
