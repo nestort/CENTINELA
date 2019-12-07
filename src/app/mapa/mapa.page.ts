@@ -23,9 +23,6 @@ export class MapaPage implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.posts=this.postService.getPosts();
-   
-    
-
   }
 
 
@@ -37,7 +34,7 @@ export class MapaPage implements OnInit, AfterViewInit {
       this.longitude = resp.coords.longitude;
       const map = new google.maps.Map(this.mapElement.nativeElement, {
         center: {lat: 22.1509523, lng: -100.9707753},
-        zoom: 16
+        zoom: 14
       });
 
       const infoWindow = new google.maps.InfoWindow;
@@ -70,45 +67,16 @@ export class MapaPage implements OnInit, AfterViewInit {
 
             var marker = new google.maps.Marker({
               position:myLatlng,
-              icon: image,
+              icon: icons[post.clasification].icon,
               map: map
           });
-         // map.setContent(marker);
           });
         },
         error(err) { console.log('errors'); }
       })
-      
-/*
-      for(var a=0;this.posts.length;a++){        
-        var marker = new google.maps.Marker({
-          position: this.posts[a].location,
-          //icon: icons[element.clasification].icon,
-          map: map
-      });
-      map.setContent(marker);
-      }*/
 
     }).catch((error) => {
       console.log('Error getting location', error);
-    });
-
-     
-    
-  }
-
-  getPoints(){
-    return [
-      new google.maps.LatLng(22.170305, -101.040403),
-      new google.maps.LatLng(22.172471, -101.039479),
-      new google.maps.LatLng(22.166597, -101.039295),
-      new google.maps.LatLng(22.169638, -101.040936),
-      new google.maps.LatLng(22.168336, -101.044823),];
-
-  }
-
-
-
-
-  
+    });    
+  }  
 }
