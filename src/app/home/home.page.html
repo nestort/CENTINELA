@@ -33,10 +33,11 @@
     <ion-item-sliding *ngFor="let item of posts">
       <ion-item lines="inset" button [routerLink]="['/post-details', item.id]">
         <ion-label>
-          {{ item.task }}
-          <p>{{ item.createdAt | date:'short' }}</p>
+          User: {{ item.idUser }}
+          Notice: {{ item.description }}
+          <p>{{ item.createdAt | date:'short' }} / {{ item.location }}</p>
         </ion-label>
-        <ion-note slot="end" color="primary">{{ item.priority }}</ion-note>
+        <ion-note slot="end" color="primary">{{ item.id }}</ion-note>
       </ion-item>
  
       <ion-item-options side="end">
