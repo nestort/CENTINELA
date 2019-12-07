@@ -55,7 +55,7 @@ export class PostDetailsPage implements OnInit {
     if (this.postId) {
       this.postService.updatePost(this.post, this.postId).then(() => {
         loading.dismiss();
-        //this.nav.goBack('home');
+        //this.nav.pop('home');
       });
     } else {
       this.postService.addPost(this.post).then(() => {
