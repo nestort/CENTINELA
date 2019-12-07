@@ -11,9 +11,10 @@ import { NavController, LoadingController } from '@ionic/angular';
 export class PostDetailsPage implements OnInit {
  
   post: Post = {
-    task: 'test',
-    createdAt: new Date().getTime(),
-    priority: 2
+  	idUser : '100',
+  	description: 'assault with 21 guns',
+  	location: 'lomas 4ta section #123456 cp 098765',
+  	createdAt: new Date().getTime()
   };
  
   postId = null;

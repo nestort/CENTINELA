@@ -5,8 +5,9 @@ import { map } from 'rxjs/operators';
  
 export interface Post {
   id?: string;
-  task: string;
-  priority: number;
+  idUser : string; 
+  description: string;
+  location: string;
   createdAt: number;
 }
  
