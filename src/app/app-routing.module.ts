@@ -13,7 +13,10 @@ const routes: Routes = [
   },
   {
     path: 'mapa',
-    loadChildren: () => import('./mapa/mapa.module').then( m => m.MapaPageModule)
+    loadChildren: () => import('./mapa/mapa.module').then( m => m.MapaPageModule)},
+    {
+    path: 'post-details',
+    loadChildren: () => import('./pages/post-details/post-details.module').then( m => m.PostDetailsPageModule)
   },
 ];
 
