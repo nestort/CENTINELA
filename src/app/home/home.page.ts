@@ -1,17 +1,3 @@
-/*
-import { Component } from '@angular/core';
-
-@Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
-})
-export class HomePage {
-
-  constructor() {}
-
-}
-*/
 import { Component, OnInit } from '@angular/core';
 import { Post, PostService } from '../services/post.service';
  
