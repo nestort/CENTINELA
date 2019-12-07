@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Post, PostService } from '../services/post.service';
- 
+import { Platform } from '@ionic/angular';
+import { LottieSplashScreen } from '@ionic-native/lottie-splash-screen/ngx';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -11,7 +12,11 @@ export class HomePage implements OnInit {
  
   posts: Post[];
  
-  constructor(private postService: PostService) { }
+  
+  constructor(public plt: Platform, private lottieSplashScreen: LottieSplashScreen,private postService: PostService){
+   
+  
+    }
  
   ngOnInit() {
     this.postService.getPosts().subscribe(res => {
