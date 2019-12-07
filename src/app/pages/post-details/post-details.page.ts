@@ -2,6 +2,7 @@ import { Post, PostService } from './../../services/post.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NavController, LoadingController } from '@ionic/angular';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
  
 @Component({
   selector: 'app-post-details',
@@ -23,8 +24,9 @@ export class PostDetailsPage implements OnInit {
  
   postId = null;
  
-  constructor(private route: ActivatedRoute, private nav: NavController, private postService: PostService, private loadingController: LoadingController) { }
-
+  constructor(private route: ActivatedRoute, private nav: NavController, private postService: PostService, private loadingController: LoadingController,private geolocation: Geolocation) { }
+  latitude;
+  longitude;
   ngOnInit() {
     this.postId = this.route.snapshot.params['id'];
     if (this.postId)  {
@@ -64,5 +66,13 @@ export class PostDetailsPage implements OnInit {
       });
     }
   }
- 
+
+  getcoord() {
+    this.geolocation.getCurrentPosition().then((resp) => {
+      this.latitude = resp.coords.latitude;
+      this.longitude = resp.coords.longitude;
+      this.post.Lon=this.longitude;
+      this.post.Lat=this.latitude;          
+    });
+  } 
 }
