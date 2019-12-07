@@ -8,6 +8,8 @@ export interface Post {
   idUser : string; 
   description: string;
   location: string;
+  clasification: number;
+  status: number;
   createdAt: number;
 }
  
