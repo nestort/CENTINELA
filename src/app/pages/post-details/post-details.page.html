@@ -11,10 +11,7 @@
   
 	<ion-list lines="full">
 		
-		<ion-item>
-		    <ion-input required type="text" placeholder="ID_User" [(ngModel)]="post.idUser"></ion-input>
-		</ion-item>
-
+		
 		 <ion-item>
 		    <ion-input required type="text" placeholder="description of situation" [(ngModel)]="post.description"></ion-input>
 		 </ion-item>
@@ -23,14 +20,7 @@
 		    <ion-input required type="text" placeholder="Location Real Time" [(ngModel)]="post.location"></ion-input>
 		</ion-item>
 
-		<ion-item>
-		    <ion-input required type="number" placeholder="clasification" [(ngModel)]="post.clasification"></ion-input>
-		</ion-item>
-
-		<ion-item>
-		    <ion-input required type="number" placeholder="status" [(ngModel)]="post.status"></ion-input>
-		</ion-item>
-
+		
 	</ion-list>
 
   	<ion-button expand="full" (click)="savePost()">Save</ion-button>
