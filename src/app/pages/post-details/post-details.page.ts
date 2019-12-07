@@ -14,7 +14,9 @@ export class PostDetailsPage implements OnInit {
   	idUser : '100',
   	description: 'assault with 21 guns',
   	location: 'lomas 4ta section #123456 cp 098765',
-  	createdAt: new Date().getTime()
+    createdAt: new Date().getTime(),
+    Lon: '-101.025054',
+    Lat: '22.148077'
   };
  
   postId = null;
