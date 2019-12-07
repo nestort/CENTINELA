@@ -29,10 +29,7 @@
     <ion-item-sliding *ngFor="let item of posts">
       <ion-item lines="inset" button [routerLink]="['/post-details', item.id]">
         <ion-label>
-          User: {{ item.idUser }} <br>
-          Clasification: {{ item.clasification }} <br>
-          Status: {{ item.status }} <br>
-          Notice: {{ item.description }} <br>
+          Denuncia: {{ item.description }} <br>
           <p>{{ item.createdAt | date:'short' }} / {{ item.location }}</p>
         </ion-label>
         <ion-note slot="end" color="primary">{{ item.id }}</ion-note>
