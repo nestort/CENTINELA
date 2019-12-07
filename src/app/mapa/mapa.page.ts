@@ -70,7 +70,7 @@ export class MapaPage implements OnInit, AfterViewInit {
 
             var marker = new google.maps.Marker({
               position:myLatlng,
-              icon: image,
+              icon: icons[post.clasification].icon,
               map: map
           });
          // map.setContent(marker);
